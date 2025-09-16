@@ -1,0 +1,14 @@
+﻿<FileList>
+  <File Reference="C1.Win.C1Document.4.6.2.dll">
+    <ToolboxItems UIFramework="WinForms" VSCategory="C1 WinForms Controls" BlendCategory="C1 WinForms Controls">
+      <Item Type="C1.Win.C1Document.C1PdfDocumentSource"/>
+      <Item Type="C1.Win.C1Document.C1SSRSDocumentSource"/>
+    </ToolboxItems>
+  </File>
+  <File Reference="C1.Win.C1Document.4.8.dll">
+    <ToolboxItems UIFramework="WinForms" VSCategory="C1 WinForms Controls" BlendCategory="C1 WinForms Controls">
+      <Item Type="C1.Win.C1Document.C1PdfDocumentSource"/>
+      <Item Type="C1.Win.C1Document.C1SSRSDocumentSource"/>
+    </ToolboxItems>
+  </File>
+</FileList>

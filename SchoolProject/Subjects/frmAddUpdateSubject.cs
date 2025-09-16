@@ -1,0 +1,119 @@
+﻿using SchoolProject.Global_Classes;
+using SchoolProjectBusiness;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace SchoolProject.Subjects
+{
+    public partial class frmAddUpdateSubject : Form
+    {
+        private enum enMode { AddNew = 0, Update = 1 }
+        enMode Mode = enMode.AddNew;
+        private int _SubjectID;
+        clsSubject _Subject;
+
+
+        public frmAddUpdateSubject()
+        {
+            InitializeComponent();
+            Mode = enMode.AddNew;
+        }  
+        public frmAddUpdateSubject(int SubjectID)
+        {
+            InitializeComponent();
+            _SubjectID = SubjectID;
+            Mode = enMode.Update;
+        }
+
+        private void _ResetDefaultValues()
+        {
+
+            if (Mode == enMode.AddNew)
+            {
+                lblTitle.Text = "Add New Subject";
+                this.lblTitle.Text = "Add New Subject";
+                _Subject = new clsSubject();
+
+            }
+            else
+            {
+                lblTitle.Text = "Update Subject";
+                this.lblTitle.Text = "Update Subject";
+
+            }
+
+
+            lblSubjectID.Text = "[????]";
+            txtSubjectName.Text = "";
+
+        }
+
+
+
+        private void _LoadData()
+        {
+            _Subject = clsSubject.FindSubjectByID(_SubjectID);
+            if (_Subject == null)
+            {
+                MessageBox.Show("No Subject with ID: " + _SubjectID, "Subject Not Found", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                this.Close();
+                return;
+            }
+
+            txtSubjectName.Text = _Subject.SubjectName;
+            lblSubjectID.Text =_Subject.SubjectID.ToString();
+            
+
+        }
+
+        private void frmAddUpdateSubject_Load(object sender, EventArgs e)
+        {
+            _ResetDefaultValues();
+
+            if (Mode == enMode.Update)
+            {
+                _LoadData();
+
+            }
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (!this.ValidateChildren())
+            {
+                //Here we dont continue becuase the form is not valid
+                MessageBox.Show("Some fileds are not valide!, put the mouse over the red icon(s) to see the erro",
+                    "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            _Subject.SubjectName= txtSubjectName.Text;
+            _Subject.CreatedBy = clsGlobal.CurrentUser.UserID;
+            _Subject.ModifiedBy = clsGlobal.CurrentUser.UserID;
+            if (_Subject.Save())
+            {
+                lblSubjectID.Text = _Subject.SubjectID.ToString();
+                //txtAcademicYear.Text = _Position.AcademicYear.ToString();
+
+                //change form mode to update.
+                Mode = enMode.Update;
+                lblTitle.Text = "Update Subject";
+                this.Text = "Update Subject";
+
+                MessageBox.Show("Data Saved Successfully.", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // Trigger the event to send data back to the caller form.
+                //DataBack?.Invoke(this, _Employee.EmployeeID);
+            }
+            else
+                MessageBox.Show("Error: Data Is not Saved Successfully.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+        }
+    }
+}

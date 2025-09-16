@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\SchoolProject\packages\EntityFramework.6.5.1\build\EntityFramework.props" Condition="Exists('..\SchoolProject\packages\EntityFramework.6.5.1\build\EntityFramework.props')" />
+  <Import Project="..\SchoolProject\packages\FastReport.OpenSource.2025.2.0\build\FastReport.OpenSource.props" Condition="Exists('..\SchoolProject\packages\FastReport.OpenSource.2025.2.0\build\FastReport.OpenSource.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{944DBA83-D6CA-4E07-A215-86501E7A054C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SchoolProjectBusiness</RootNamespace>
+    <AssemblyName>SchoolProjectBusiness</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\BouncyCastle.Cryptography.2.4.0\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.CalcEngine, Version=8.0.20242.37, Culture=neutral, PublicKeyToken=5b232803f482ce0b, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\C1.CalcEngine.8.0.20242.37\lib\netstandard2.0\C1.CalcEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.Chart, Version=8.0.20251.16, Culture=neutral, PublicKeyToken=3aa2920c09e0aefd, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\C1.Chart.8.0.20251.16\lib\netstandard2.0\C1.Chart.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.DataCollection, Version=8.0.20241.197, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\C1.DataCollection.8.0.20241.197\lib\netstandard1.1\C1.DataCollection.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.DataCollection.BindingList, Version=8.0.20241.197, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\C1.DataCollection.BindingList.8.0.20241.197\lib\net452\C1.DataCollection.BindingList.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.Document.4.6.2, Version=8.0.20251.96, Culture=neutral, PublicKeyToken=6b66a9e217bdeae0, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\C1.Document.8.0.20251.96\lib\net462\C1.Document.4.6.2.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.Excel, Version=9.0.20251.148, Culture=neutral, PublicKeyToken=6b66a9e217bdeae0, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\C1.Excel.9.0.20251.148\lib\net462\C1.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.Pdf, Version=9.0.20251.143, Culture=neutral, PublicKeyToken=6b66a9e217bdeae0, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\C1.Pdf.9.0.20251.143\lib\net462\C1.Pdf.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.Win.4.6.2, Version=4.6.20251.714, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\C1.Win.8.0.20251.714\lib\net462\C1.Win.4.6.2.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.Win.Barcode.4.6.2, Version=4.6.20251.714, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\C1.Win.BarCode.8.0.20251.714\lib\net462\C1.Win.Barcode.4.6.2.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.Win.Bitmap.4.6.2, Version=4.6.20251.714, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\C1.Win.Bitmap.8.0.20251.714\lib\net462\C1.Win.Bitmap.4.6.2.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.Win.C1Chart.4.6.2, Version=4.6.20251.714, Culture=neutral, PublicKeyToken=a22e16972c085838, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\C1.Win.C1Chart.4.8.20251.714\lib\net462\C1.Win.C1Chart.4.6.2.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.Win.C1Chart3D.4.6.2, Version=4.6.20251.714, Culture=neutral, PublicKeyToken=a22e16972c085838, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\C1.Win.C1Chart.4.8.20251.714\lib\net462\C1.Win.C1Chart3D.4.6.2.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.Win.C1Command.4.6.2, Version=4.6.20251.714, Culture=neutral, PublicKeyToken=e808566f358766d8, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\C1.Win.C1Command.4.8.20251.714\lib\net462\C1.Win.C1Command.4.6.2.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.Win.C1Document.4.6.2, Version=4.6.20251.714, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\C1.Win.C1Document.4.8.20251.714\lib\net462\C1.Win.C1Document.4.6.2.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.Win.C1DX.4.6.2, Version=4.6.20251.714, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\C1.Win.C1DX.4.8.20251.714\lib\net462\C1.Win.C1DX.4.6.2.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.Win.C1Input.4.6.2, Version=4.6.20251.714, Culture=neutral, PublicKeyToken=7e7ff60f0c214f9a, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\C1.Win.C1Input.4.8.20251.714\lib\net462\C1.Win.C1Input.4.6.2.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.Win.FlexChart.4.6.2, Version=4.6.20251.714, Culture=neutral, PublicKeyToken=3aa2920c09e0aefd, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\C1.Win.FlexChart.8.0.20251.714\lib\net462\C1.Win.FlexChart.4.6.2.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.Win.FlexChart.Toolbar.4.6.2, Version=4.6.20251.714, Culture=neutral, PublicKeyToken=3aa2920c09e0aefd, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\C1.Win.FlexChart.8.0.20251.714\lib\net462\C1.Win.FlexChart.Toolbar.4.6.2.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.Win.Pdf, Version=9.0.20251.143, Culture=neutral, PublicKeyToken=6b66a9e217bdeae0, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\C1.Win.Pdf.9.0.20251.143\lib\net462\C1.Win.Pdf.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.Win.Ribbon.4.6.2, Version=4.6.20251.714, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\C1.Win.Ribbon.8.0.20251.714\lib\net462\C1.Win.Ribbon.4.6.2.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.Zip, Version=9.0.20251.10, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\C1.Zip.9.0.20251.10\lib\netstandard2.0\C1.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.20.0.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\DocumentFormat.OpenXml.2.20.0\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="DS.Documents.Barcode, Version=8.0.5.0, Culture=neutral, PublicKeyToken=d55d733d2bfd5065, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\DS.Documents.Barcode.8.0.5\lib\net462\DS.Documents.Barcode.dll</HintPath>
+    </Reference>
+    <Reference Include="DS.Documents.DX.Windows, Version=8.0.5.0, Culture=neutral, PublicKeyToken=d55d733d2bfd5065, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\DS.Documents.DX.Windows.8.0.5\lib\net462\DS.Documents.DX.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="DS.Documents.Imaging, Version=8.0.5.0, Culture=neutral, PublicKeyToken=d55d733d2bfd5065, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\DS.Documents.Imaging.8.0.5\lib\net462\DS.Documents.Imaging.dll</HintPath>
+    </Reference>
+    <Reference Include="DS.Documents.Imaging.Windows, Version=8.0.5.0, Culture=neutral, PublicKeyToken=d55d733d2bfd5065, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\DS.Documents.Imaging.Windows.8.0.5\lib\net462\DS.Documents.Imaging.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="DS.Documents.Pdf, Version=8.0.5.0, Culture=neutral, PublicKeyToken=d55d733d2bfd5065, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\DS.Documents.Pdf.8.0.5\lib\net462\DS.Documents.Pdf.dll</HintPath>
+    </Reference>
+    <Reference Include="DS.Documents.Word, Version=8.0.5.0, Culture=neutral, PublicKeyToken=d55d733d2bfd5065, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\DS.Documents.Word.8.0.5\lib\net462\DS.Documents.Word.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="FastReport, Version=2025.2.0.0, Culture=neutral, PublicKeyToken=406e1f4c3c8ef97e, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\FastReport.OpenSource.2025.2.0\lib\net462\FastReport.dll</HintPath>
+    </Reference>
+    <Reference Include="FastReport.Compat, Version=2025.2.0.0, Culture=neutral, PublicKeyToken=5ceb240df42bf6e8, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\FastReport.Compat.2025.2.0\lib\net462\FastReport.Compat.dll</HintPath>
+    </Reference>
+    <Reference Include="FontAwesome.Sharp, Version=6.6.0.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\FontAwesome.Sharp.6.6.0\lib\net472\FontAwesome.Sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="GumroadLicensing, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\GumroadLicensing.1.0.3\lib\net40\GumroadLicensing.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.4, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\iTextSharp.5.5.13.4\lib\net461\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.WinForms, Version=0.9.7.1, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\LiveCharts.WinForms.0.9.7.1\lib\net45\LiveCharts.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\Microsoft.Bcl.AsyncInterfaces.9.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.Cryptography, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\Microsoft.Bcl.Cryptography.9.0.0\lib\net462\Microsoft.Bcl.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=9.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\Microsoft.Extensions.DependencyInjection.Abstractions.9.0.0\lib\net462\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=9.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\Microsoft.Extensions.Logging.Abstractions.9.0.0\lib\net462\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="NavigationMenu, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\Kimtoo.NavigationMenu.1.0.2\lib\net40\NavigationMenu.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json.Bson, Version=1.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\Newtonsoft.Json.Bson.1.0.3\lib\net45\Newtonsoft.Json.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.4.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\System.Buffers.4.6.0\lib\net462\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Odbc, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\System.Data.Odbc.5.0.0\lib\net461\System.Data.Odbc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.OleDb, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\System.Data.OleDb.5.0.0\lib\net461\System.Data.OleDb.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite, Version=1.0.118.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.118.0\lib\net46\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.118.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\System.Data.SQLite.EF6.1.0.118.0\lib\net46\System.Data.SQLite.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.118.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\System.Data.SQLite.Linq.1.0.118.0\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\System.Diagnostics.DiagnosticSource.9.0.0\lib\net462\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Formats.Asn1, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\System.Formats.Asn1.9.0.0\lib\net462\System.Formats.Asn1.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IO.Pipelines, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\System.IO.Pipelines.9.0.0\lib\net462\System.IO.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\System.Memory.4.6.0\lib\net462\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\System.Numerics.Vectors.4.6.0\lib\net462\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\System.Runtime.CompilerServices.Unsafe.6.1.0\lib\net462\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.Cryptography.Pkcs, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\System.Security.Cryptography.Pkcs.9.0.0\lib\net462\System.Security.Cryptography.Pkcs.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Http, Version=4.10.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\System.ServiceModel.Http.4.10.3\lib\net461\System.ServiceModel.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.Primitives, Version=4.10.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\System.ServiceModel.Primitives.4.10.3\lib\net461\System.ServiceModel.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\System.Text.Encodings.Web.9.0.0\lib\net462\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\System.Text.Json.9.0.0\lib\net462\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\SchoolProject\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AesHelper.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AesHelper.Designer.cs">
+      <DependentUpon>AesHelper.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AttendanceRecord.cs" />
+    <Compile Include="AuditHelper.cs" />
+    <Compile Include="Class.cs" />
+    <Compile Include="clsReceipt.cs" />
+    <Compile Include="clsTeacherAttendanceSummary.cs" />
+    <Compile Include="Comparison.cs" />
+    <Compile Include="Country.cs" />
+    <Compile Include="DataHelper.cs" />
+    <Compile Include="DbInitializer.cs" />
+    <Compile Include="Employee.cs" />
+    <Compile Include="Enrollment.cs" />
+    <Compile Include="EnrollmentHistory.cs" />
+    <Compile Include="ExamScore.cs" />
+    <Compile Include="ExamType.cs" />
+    <Compile Include="FeeType.cs" />
+    <Compile Include="FeeTypeDefaults.cs" />
+    <Compile Include="Financial.cs" />
+    <Compile Include="Grade.cs" />
+    <Compile Include="GradeSubject.cs" />
+    <Compile Include="Graduation.cs" />
+    <Compile Include="Guardian.cs" />
+    <Compile Include="GuardianStudents.cs" />
+    <Compile Include="Installment.cs" />
+    <Compile Include="InstallmentFrequency.cs" />
+    <Compile Include="InstallmentPlan.cs" />
+    <Compile Include="Interface1.cs" />
+    <Compile Include="Invoice.cs" />
+    <Compile Include="LicenseManager.cs" />
+    <Compile Include="PaymentType.cs" />
+    <Compile Include="Payroll.cs" />
+    <Compile Include="Person.cs" />
+    <Compile Include="Position.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="RepeatedEnrollment.cs" />
+    <Compile Include="SalaryDeductionSummary.cs" />
+    <Compile Include="SchoolInfo.cs" />
+    <Compile Include="Score.cs" />
+    <Compile Include="ScoreDetailsPerTerm.cs" />
+    <Compile Include="ScoresDetails.cs" />
+    <Compile Include="ScoresSummary.cs" />
+    <Compile Include="Student.cs" />
+    <Compile Include="StudentAttendance.cs" />
+    <Compile Include="StudentBehaviour.cs" />
+    <Compile Include="Subject.cs" />
+    <Compile Include="Teacher.cs" />
+    <Compile Include="EmployeeAttendance.cs" />
+    <Compile Include="TeacherClassAssignment.cs" />
+    <Compile Include="TeacherSubjectAssignment.cs" />
+    <Compile Include="Term.cs" />
+    <Compile Include="TimeTableGenerator.cs" />
+    <Compile Include="Trends.cs" />
+    <Compile Include="TuitionPayment.cs" />
+    <Compile Include="User.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SchoolProjectData\SchoolProjectData.csproj">
+      <Project>{de653395-7f12-45ef-8dc1-e45deb0382ed}</Project>
+      <Name>SchoolProjectData</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ILLink\ILLink.Descriptors.LibraryBuild.xml" />
+    <None Include="Resources\tap_4161814.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\SchoolProject\packages\FastReport.OpenSource.2025.2.0\build\FastReport.OpenSource.props')" Text="$([System.String]::Format('$(ErrorText)', '..\SchoolProject\packages\FastReport.OpenSource.2025.2.0\build\FastReport.OpenSource.props'))" />
+    <Error Condition="!Exists('..\SchoolProject\packages\EntityFramework.6.5.1\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\SchoolProject\packages\EntityFramework.6.5.1\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\SchoolProject\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\SchoolProject\packages\EntityFramework.6.5.1\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\SchoolProject\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.118.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\SchoolProject\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.118.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets'))" />
+  </Target>
+  <Import Project="..\SchoolProject\packages\EntityFramework.6.5.1\build\EntityFramework.targets" Condition="Exists('..\SchoolProject\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" />
+  <Import Project="..\SchoolProject\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.118.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('..\SchoolProject\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.118.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" />
+</Project>

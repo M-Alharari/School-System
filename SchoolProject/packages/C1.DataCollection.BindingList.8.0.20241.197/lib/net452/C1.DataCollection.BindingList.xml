@@ -1,0 +1,822 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>C1.DataCollection.BindingList</name>
+    </assembly>
+    <members>
+        <member name="T:C1.DataCollection.BindingList.C1BindingListDataCollection">
+            <summary>
+            This collection takes an <see cref="T:System.ComponentModel.IBindingList"/> and wraps its features to be consumed as an <see cref="T:C1.DataCollection.IDataCollection`1"/>.
+            </summary>
+        </member>
+        <member name="M:C1.DataCollection.BindingList.C1BindingListDataCollection.#ctor(System.ComponentModel.IBindingList)">
+            <summary>
+            Initializes a new instance of the <see cref="T:C1.DataCollection.BindingList.C1BindingListDataCollection"/> class.
+            </summary>
+            <param name="bindingList">The binding list.</param>
+        </member>
+        <member name="P:C1.DataCollection.BindingList.C1BindingListDataCollection.Item(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="P:C1.DataCollection.BindingList.C1BindingListDataCollection.BindingList">
+            <summary>
+            Gets the underlying <see cref="T:System.ComponentModel.IBindingList"/>.
+            </summary>
+        </member>
+        <member name="P:C1.DataCollection.BindingList.C1BindingListDataCollection.BindingListView">
+            <summary>
+            Gets the underlying <see cref="T:System.ComponentModel.IBindingListView"/> if it is implemented by the source.
+            </summary>
+        </member>
+        <member name="P:C1.DataCollection.BindingList.C1BindingListDataCollection.InternalList">
+            <summary>
+            Gets or sets the list that hold the items to be returned in the public api.
+            </summary>
+        </member>
+        <member name="P:C1.DataCollection.BindingList.C1BindingListDataCollection.Source">
+            <summary>
+            Gets the data source of this collection.
+            </summary>
+        </member>
+        <member name="E:C1.DataCollection.BindingList.C1BindingListDataCollection.FilterChanged">
+            <summary>
+            Raised after a filter operation was performed.
+            </summary>
+        </member>
+        <member name="P:C1.DataCollection.BindingList.C1BindingListDataCollection.FilterExpression">
+            <summary>
+            Gets the filter expression applied to the data.
+            </summary>
+        </member>
+        <member name="M:C1.DataCollection.BindingList.C1BindingListDataCollection.CanFilter(C1.DataCollection.FilterExpression)">
+            <summary>
+            Returns whether the collection is able to filter the specified <paramref name="filterExpression" />.
+            </summary>
+            <param name="filterExpression">The filter expression that determine how the data would be filtered.</param>
+            <returns></returns>
+        </member>
+        <member name="M:C1.DataCollection.BindingList.C1BindingListDataCollection.FilterAsync(C1.DataCollection.FilterExpression,System.Threading.CancellationToken)">
+            <summary>
+            Filters the data using specified <paramref name="filterExpression" />.
+            </summary>
+            <param name="filterExpression">The filter expression applied to the data.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:C1.DataCollection.BindingList.C1BindingListDataCollection.ToFilterString(C1.DataCollection.FilterExpression,System.ComponentModel.ITypedList)">
+            <summary>
+            Converts the <paramref name="filterExpression"/> into a DataSet filter expression https://learn.microsoft.com/en-us/dotnet/api/system.data.datacolumn.expression.
+            </summary>
+            <param name="filterExpression">The expression to be converted.</param>
+            <param name="typedList">The typed list used to look for property names and find whether it is necessary to convert the property to string.</param>
+            <exception cref="T:System.NotSupportedException">Thrown when a <see cref="T:C1.DataCollection.FilterPredicateExpression"/> is passed as parameter. This kind of expressions are opaque and can not be converted.</exception>
+        </member>
+        <member name="E:C1.DataCollection.BindingList.C1BindingListDataCollection.SortChanged">
+            <summary>
+            Raised after a sort operation was performed.
+            </summary>
+        </member>
+        <member name="P:C1.DataCollection.BindingList.C1BindingListDataCollection.SortDescriptions">
+            <summary>
+            Gets the sort descriptions applied to the data.
+            </summary>
+        </member>
+        <member name="M:C1.DataCollection.BindingList.C1BindingListDataCollection.CanSort(C1.DataCollection.SortDescription[])">
+            <summary>
+            Returns whether the collection is able to sort the specified <paramref name="sortDescriptions" />.
+            </summary>
+            <param name="sortDescriptions">The sort descriptions to be checked whether the collection can be sorted.</param>
+            <returns></returns>
+        </member>
+        <member name="M:C1.DataCollection.BindingList.C1BindingListDataCollection.SortAsync(C1.DataCollection.SortDescription[])">
+            <summary>
+            Sorts the collection according to the specified <paramref name="sortDescriptions" />.
+            </summary>
+            <param name="sortDescriptions">The sort descriptions that determine how the data will be sort.</param>
+        </member>
+        <member name="M:C1.DataCollection.BindingList.C1BindingListDataCollection.SortAsync(C1.DataCollection.SortDescription[],System.Threading.CancellationToken)">
+            <summary>
+            Sorts the collection according to the specified <paramref name="sortDescriptions" />.
+            </summary>
+            <param name="sortDescriptions">The sort descriptions that determine how the data will be sort.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:C1.DataCollection.BindingList.C1BindingListDataCollection.GetItemType">
+            <summary>
+            Gets the type of the item.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:C1.DataCollection.BindingList.C1BindingListDataCollection.ItemWrapper">
+            <summary>
+            Base class for dynamically created records from <see cref="T:C1.DataCollection.BindingList.C1BindingListDataCollection"/>.
+            </summary>
+        </member>
+        <member name="P:C1.DataCollection.BindingList.C1BindingListDataCollection.ItemWrapper.Item">
+            <summary>
+            Gets the wrapped item.
+            </summary>
+        </member>
+        <member name="M:C1.DataCollection.BindingList.C1BindingListDataCollection.ItemWrapper.#ctor(System.Object)">
+            <summary>
+            Initializes a new instance of the <see cref="T:C1.DataCollection.BindingList.C1BindingListDataCollection.ItemWrapper"/> class.
+            </summary>
+            <param name="item">The item to be wrapped.</param>
+        </member>
+        <member name="M:C1.DataCollection.BindingList.C1BindingListDataCollection.GetPropertyDescriptorValue``1(System.ComponentModel.PropertyDescriptor,System.Object)">
+            <summary>
+            Gets the property descriptor value.
+            </summary>
+            <remarks>For internal use only.</remarks>
+            <typeparam name="T"></typeparam>
+            <param name="propertyDescriptor">The property descriptor.</param>
+            <param name="item">The item.</param>
+            <returns></returns>
+        </member>
+        <member name="M:C1.DataCollection.BindingList.C1BindingListDataCollection.SetPropertyDescriptorValue``1(System.ComponentModel.PropertyDescriptor,System.Object,``0)">
+            <summary>
+            Sets the property descriptor value.
+            </summary>
+            <remarks>For internal use only.</remarks>
+            <typeparam name="T"></typeparam>
+            <param name="propertyDescriptor">The property descriptor.</param>
+            <param name="item">The item.</param>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:C1.DataCollection.BindingList.C1BindingListDataCollection.Dispose(System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="T:C1.DataCollection.BindingList.IBindingListDataCollectionItem">
+            <summary>
+            Interface implemented by dynamic items created by <see cref="T:C1.DataCollection.BindingList.C1BindingListDataCollection"/>.
+            </summary>
+            <remarks>This interface can be used to access the original item in the underlying <see cref="T:System.ComponentModel.IBindingList"/>.</remarks>
+        </member>
+        <member name="P:C1.DataCollection.BindingList.IBindingListDataCollectionItem.Item">
+            <summary>
+            Gets the original item in the <see cref="T:System.ComponentModel.IBindingList"/>.
+            </summary>
+        </member>
+        <member name="T:C1.DataCollection.BindingList.C1BindingListDataCollectionEx">
+            <summary>
+            <see cref="T:C1.DataCollection.BindingList.C1BindingListDataCollection"/> extension methods.
+            </summary>
+        </member>
+        <member name="M:C1.DataCollection.BindingList.C1BindingListDataCollectionEx.AsDataCollection(System.ComponentModel.IBindingList)">
+            <summary>
+            Wraps the <see cref="T:System.ComponentModel.IBindingList"/> into a data collection.
+            </summary>
+            <param name="bindingList">The binding list.</param>
+        </member>
+        <member name="M:C1.DataCollection.BindingList.C1BindingListDataCollectionEx.AsDataCollection(System.Data.DataTable)">
+            <summary>
+            Wraps the <see cref="T:System.Data.DataTable"/> into a data collection.
+            </summary>
+            <param name="dataTable">The data table.</param>
+            <returns></returns>
+        </member>
+        <member name="T:C1.DataCollection.BindingList.C1DataCollectionBindingList">
+            <summary>
+            This class exposes an <see cref="T:C1.DataCollection.IDataCollection`1"/> as a <see cref="T:System.ComponentModel.IBindingList"/> so it can be used in WinForm controls that has support for this interface.
+            </summary>
+        </member>
+        <member name="M:C1.DataCollection.BindingList.C1DataCollectionBindingList.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:C1.DataCollection.BindingList.C1DataCollectionBindingList"/> class.
+            </summary>
+        </member>
+        <member name="M:C1.DataCollection.BindingList.C1DataCollectionBindingList.#ctor(System.Collections.IEnumerable)">
+            <summary>
+            Initializes a new instance of the <see cref="T:C1.DataCollection.BindingList.C1DataCollectionBindingList"/> class.
+            </summary>
+            <param name="source">The source.</param>
+        </member>
+        <member name="M:C1.DataCollection.BindingList.C1DataCollectionBindingList.#ctor(C1.DataCollection.IDataCollection{System.Object},System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:C1.DataCollection.BindingList.C1DataCollectionBindingList"/> class.
+            </summary>
+            <param name="dataCollection">The data collection.</param>
+            <param name="useNullSentinel">Specifies whether the collection indexer will return a sentinel when the underlying collection returns a null item.</param>
+            <param name="notifiesReplaceAsReset">When set to true, will raise Reset notification for item changes instead of ItemChanged.</param>
+        </member>
+        <member name="P:C1.DataCollection.BindingList.C1DataCollectionBindingList.DataCollection">
+            <summary>
+            Gets or sets the underlying data collection.
+            </summary>
+        </member>
+        <member name="P:C1.DataCollection.BindingList.C1DataCollectionBindingList.Count">
+            <summary>
+            Gets the number of elements contained in the <see cref="T:System.Collections.ICollection" />.
+            </summary>
+        </member>
+        <member name="P:C1.DataCollection.BindingList.C1DataCollectionBindingList.Item(System.Int32)">
+            <summary>
+            Gets the <see cref="T:System.Object"/> at the specified index.
+            </summary>
+            <param name="index">The index.</param>
+        </member>
+        <member name="P:C1.DataCollection.BindingList.C1DataCollectionBindingList.UseNullSentinel">
+            <summary>
+            Gets a value indicating whether a sentinel item will be returned for those items that are null.
+            </summary>
+        </member>
+        <member name="P:C1.DataCollection.BindingList.C1DataCollectionBindingList.NotifiesReplaceAsReset">
+            <summary>
+            Gets whether the item changes(Replace) are notified as Reset.
+            </summary>
+            <remarks>This property is particularly relevant when using this collection as the source of WPF DataGrid and the item type implements INotifyPropertyChanged, because that grid ignores these cases and do nothing.</remarks>
+        </member>
+        <member name="P:C1.DataCollection.BindingList.C1DataCollectionBindingList.AllowNew">
+            <summary>
+            Gets whether you can add items to the list using <see cref="M:System.ComponentModel.IBindingList.AddNew" />.
+            </summary>
+        </member>
+        <member name="P:C1.DataCollection.BindingList.C1DataCollectionBindingList.IsCommitting">
+            <summary>
+            Gets whether the changes are being committed to the underlying collection
+            </summary>
+        </member>
+        <member name="P:C1.DataCollection.BindingList.C1DataCollectionBindingList.AllowEdit">
+            <summary>
+            Gets whether you can update items in the list.
+            </summary>
+        </member>
+        <member name="P:C1.DataCollection.BindingList.C1DataCollectionBindingList.AllowRemove">
+            <summary>
+            Gets whether you can remove items from the list, using <see cref="M:System.Collections.IList.Remove(System.Object)" /> or <see cref="M:System.Collections.IList.RemoveAt(System.Int32)" />.
+            </summary>
+        </member>
+        <member name="P:C1.DataCollection.BindingList.C1DataCollectionBindingList.SupportsChangeNotification">
+            <summary>
+            Gets whether a <see cref="E:System.ComponentModel.IBindingList.ListChanged" /> event is raised when the list changes or an item in the list changes.
+            </summary>
+        </member>
+        <member name="P:C1.DataCollection.BindingList.C1DataCollectionBindingList.SupportsSearching">
+            <summary>
+            Gets whether the list supports searching using the <see cref="M:System.ComponentModel.IBindingList.Find(System.ComponentModel.PropertyDescriptor,System.Object)" /> method.
+            </summary>
+        </member>
+        <member name="P:C1.DataCollection.BindingList.C1DataCollectionBindingList.IsReadOnly">
+            <summary>
+            Gets a value indicating whether the <see cref="T:System.Collections.IList" /> is read-only.
+            </summary>
+        </member>
+        <member name="P:C1.DataCollection.BindingList.C1DataCollectionBindingList.IsFixedSize">
+            <summary>
+            Gets a value indicating whether the <see cref="T:System.Collections.IList" /> has a fixed size.
+            </summary>
+        </member>
+        <member name="P:C1.DataCollection.BindingList.C1DataCollectionBindingList.SyncRoot">
+            <summary>
+            Gets an object that can be used to synchronize access to the <see cref="T:System.Collections.ICollection" />.
+            </summary>
+        </member>
+        <member name="P:C1.DataCollection.BindingList.C1DataCollectionBindingList.IsSynchronized">
+            <summary>
+            Gets a value indicating whether access to the <see cref="T:System.Collections.ICollection" /> is synchronized (thread safe).
+            </summary>
+        </member>
+        <member name="E:C1.DataCollection.BindingList.C1DataCollectionBindingList.ListChanged">
+            <summary>
+            Occurs when the list changes or an item in the list changes.
+            </summary>
+        </member>
+        <member name="M:C1.DataCollection.BindingList.C1DataCollectionBindingList.OnListChanged(System.Object,System.ComponentModel.ListChangedEventArgs)">
+            <summary>
+            Called to raise <see cref="E:C1.DataCollection.BindingList.C1DataCollectionBindingList.ListChanged"/> event.
+            </summary>
+            <param name="sender">The object that raises the event.</param>
+            <param name="e">The event data.</param>
+        </member>
+        <member name="M:C1.DataCollection.BindingList.C1DataCollectionBindingList.Contains(System.Object)">
+            <summary>
+            Determines whether the <see cref="T:System.Collections.IList" /> contains a specific value.
+            </summary>
+            <param name="value">The object to locate in the <see cref="T:System.Collections.IList" />.</param>
+            <returns>
+            true if the <see cref="T:System.Object" /> is found in the <see cref="T:System.Collections.IList" />; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:C1.DataCollection.BindingList.C1DataCollectionBindingList.CopyTo(System.Array,System.Int32)">
+            <summary>
+            Copies the elements of the <see cref="T:System.Collections.ICollection" /> to an <see cref="T:System.Array" />, starting at a particular <see cref="T:System.Array" /> index.
+            </summary>
+            <param name="array">The one-dimensional <see cref="T:System.Array" /> that is the destination of the elements copied from <see cref="T:System.Collections.ICollection" />. The <see cref="T:System.Array" /> must have zero-based indexing.</param>
+            <param name="index">The zero-based index in <paramref name="array" /> at which copying begins.</param>
+        </member>
+        <member name="M:C1.DataCollection.BindingList.C1DataCollectionBindingList.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through a collection.
+            </summary>
+            <returns>
+            An <see cref="T:System.Collections.IEnumerator" /> object that can be used to iterate through the collection.
+            </returns>
+        </member>
+        <member name="M:C1.DataCollection.BindingList.C1DataCollectionBindingList.IndexOf(System.Object)">
+            <summary>
+            Determines the index of a specific item in the <see cref="T:System.Collections.IList" />.
+            </summary>
+            <param name="value">The object to locate in the <see cref="T:System.Collections.IList" />.</param>
+            <returns>
+            The index of <paramref name="value" /> if found in the list; otherwise, -1.
+            </returns>
+        </member>
+        <member name="M:C1.DataCollection.BindingList.C1DataCollectionBindingList.Clear">
+            <summary>
+            Removes all items from the <see cref="T:System.Collections.IList" />.
+            </summary>
+        </member>
+        <member name="M:C1.DataCollection.BindingList.C1DataCollectionBindingList.Insert(System.Int32,System.Object)">
+            <summary>
+            Inserts an item to the <see cref="T:System.Collections.IList" /> at the specified index.
+            </summary>
+            <param name="index">The zero-based index at which <paramref name="value" /> should be inserted.</param>
+            <param name="value">The object to insert into the <see cref="T:System.Collections.IList" />.</param>
+        </member>
+        <member name="M:C1.DataCollection.BindingList.C1DataCollectionBindingList.Add(System.Object)">
+            <summary>
+            Adds an item to the <see cref="T:System.Collections.IList" />.
+            </summary>
+            <param name="value">The object to add to the <see cref="T:System.Collections.IList" />.</param>
+            <returns>
+            The position into which the new element was inserted, or -1 to indicate that the item was not inserted into the collection.
+            </returns>
+        </member>
+        <member name="M:C1.DataCollection.BindingList.C1DataCollectionBindingList.AddNew">
+            <summary>
+            Adds a new item to the list.
+            </summary>
+        </member>
+        <member name="M:C1.DataCollection.BindingList.C1DataCollectionBindingList.CancelNew(System.Int32)">
+            <summary>
+            Discards a pending new item from the collection.
+            </summary>
+            <param name="itemIndex">The index of the item that was previously added to the collection.</param>
+        </member>
+        <member name="M:C1.DataCollection.BindingList.C1DataCollectionBindingList.EndNew(System.Int32)">
+            <summary>
+            Commits a pending new item to the collection.
+            </summary>
+            <param name="itemIndex">The index of the item that was previously added to the collection.</param>
+        </member>
+        <member name="M:C1.DataCollection.BindingList.C1DataCollectionBindingList.Remove(System.Object)">
+            <summary>
+            Removes the first occurrence of a specific object from the <see cref="T:System.Collections.IList" />.
+            </summary>
+            <param name="value">The object to remove from the <see cref="T:System.Collections.IList" />.</param>
+        </member>
+        <member name="M:C1.DataCollection.BindingList.C1DataCollectionBindingList.RemoveAt(System.Int32)">
+            <summary>
+            Removes the <see cref="T:System.Collections.IList" /> item at the specified index.
+            </summary>
+            <param name="index">The zero-based index of the item to remove.</param>
+        </member>
+        <member name="P:C1.DataCollection.BindingList.C1DataCollectionBindingList.SupportsSorting">
+            <inheritdoc/>
+        </member>
+        <member name="P:C1.DataCollection.BindingList.C1DataCollectionBindingList.SupportsAdvancedSorting">
+            <inheritdoc/>
+        </member>
+        <member name="P:C1.DataCollection.BindingList.C1DataCollectionBindingList.IsSorted">
+            <inheritdoc/>
+        </member>
+        <member name="P:C1.DataCollection.BindingList.C1DataCollectionBindingList.SortProperty">
+            <inheritdoc/>
+        </member>
+        <member name="P:C1.DataCollection.BindingList.C1DataCollectionBindingList.SortDirection">
+            <inheritdoc/>
+        </member>
+        <member name="P:C1.DataCollection.BindingList.C1DataCollectionBindingList.SortDescriptions">
+            <inheritdoc/>
+        </member>
+        <member name="M:C1.DataCollection.BindingList.C1DataCollectionBindingList.ApplySort(System.ComponentModel.PropertyDescriptor,System.ComponentModel.ListSortDirection)">
+            <inheritdoc/>
+        </member>
+        <member name="M:C1.DataCollection.BindingList.C1DataCollectionBindingList.ApplySort(System.ComponentModel.ListSortDescriptionCollection)">
+            <inheritdoc/>
+        </member>
+        <member name="M:C1.DataCollection.BindingList.C1DataCollectionBindingList.RemoveSort">
+            <inheritdoc/>
+        </member>
+        <member name="P:C1.DataCollection.BindingList.C1DataCollectionBindingList.SupportsFiltering">
+            <inheritdoc/>
+        </member>
+        <member name="P:C1.DataCollection.BindingList.C1DataCollectionBindingList.Filter">
+            <inheritdoc/>
+        </member>
+        <member name="M:C1.DataCollection.BindingList.C1DataCollectionBindingList.RemoveFilter">
+            <inheritdoc/>
+        </member>
+        <member name="M:C1.DataCollection.BindingList.C1DataCollectionBindingList.FromFilterString(System.String)">
+            <summary>
+            Parses a filter expression string and returns the corresponding <see cref="T:C1.DataCollection.FilterExpression"/>.
+            </summary>
+            <param name="expression">The filter expression string.</param>
+        </member>
+        <member name="M:C1.DataCollection.BindingList.C1DataCollectionBindingList.GetListName(System.ComponentModel.PropertyDescriptor[])">
+            <inheritdoc/>
+        </member>
+        <member name="M:C1.DataCollection.BindingList.C1DataCollectionBindingList.GetItemProperties(System.ComponentModel.PropertyDescriptor[])">
+            <inheritdoc/>
+        </member>
+        <member name="M:C1.DataCollection.BindingList.C1DataCollectionBindingList.Find(System.ComponentModel.PropertyDescriptor,System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:C1.DataCollection.BindingList.C1DataCollectionBindingList.AddIndex(System.ComponentModel.PropertyDescriptor)">
+            <inheritdoc/>
+        </member>
+        <member name="M:C1.DataCollection.BindingList.C1DataCollectionBindingList.RemoveIndex(System.ComponentModel.PropertyDescriptor)">
+            <inheritdoc/>
+        </member>
+        <member name="T:C1.DataCollection.BindingList.IDataCollectionBindingListItem">
+            <summary>
+            Interface implemented by dynamic items created by <see cref="T:C1.DataCollection.BindingList.C1DataCollectionBindingList"/>.
+            </summary>
+            <remarks>This interface can be used to access the original item in the underlying <see cref="T:C1.DataCollection.IDataCollection`1"/>.</remarks>
+        </member>
+        <member name="P:C1.DataCollection.BindingList.IDataCollectionBindingListItem.Item">
+            <summary>
+            Gets the original item in the <see cref="T:C1.DataCollection.IDataCollection`1"/>.
+            </summary>
+        </member>
+        <member name="P:C1.DataCollection.BindingList.IDataCollectionBindingListItem.Properties">
+            <summary>
+            Gets the collection of properties of the item.
+            </summary>
+        </member>
+        <member name="M:C1.DataCollection.BindingList.ExpressionParser.ParseAggregateArgument(C1.DataCollection.BindingList.FunctionId)">
+            <devdoc>
+                parse the argument to an Aggregate function.
+                the syntax is
+                     Func(child[(relation_name)].column_name)
+                When the function is called we have already parsed the Aggregate name, and open paren
+            </devdoc>
+        </member>
+        <member name="M:C1.DataCollection.BindingList.ExpressionParser.NodePop">
+            <devdoc>
+                NodePop - Pop an operand node from the node stack.
+            </devdoc>
+        </member>
+        <member name="M:C1.DataCollection.BindingList.ExpressionParser.NodePeek">
+            <devdoc>
+                NodePeek - Peek at the top node.
+            </devdoc>
+        </member>
+        <member name="M:C1.DataCollection.BindingList.ExpressionParser.NodePush(C1.DataCollection.BindingList.ExpressionNode)">
+            <devdoc>
+                Push an operand node onto the node stack
+            </devdoc>
+        </member>
+        <member name="M:C1.DataCollection.BindingList.ExpressionParser.BuildExpression(System.Int32)">
+            <devdoc>
+                Builds expression tree for higher-precedence operator to be used as left
+                operand of current operator. May cause errors - always do ErrorCheck() upin return.
+            </devdoc>
+        </member>
+        <member name="M:C1.DataCollection.BindingList.ExpressionParser.ScanNumeric">
+            <devdoc>
+                ScanNumeric - parse number.
+                In format: [digit|.]*{[e|E]{[+|-]}{digit*}}
+                Further checking is done by constant parser.
+            </devdoc>
+        </member>
+        <member name="M:C1.DataCollection.BindingList.ExpressionParser.ScanName">
+            <devdoc>
+                Just a string of alphanumeric characters.
+            </devdoc>
+        </member>
+        <member name="M:C1.DataCollection.BindingList.ExpressionParser.ScanName(System.Char,System.Char,System.String)">
+            <devdoc>
+                 recognize bracketed identifiers.
+                 Special case: we are using '\' character to escape '[' and ']' only, so '\' by itself  is not an escape
+            </devdoc>
+        </member>
+        <member name="M:C1.DataCollection.BindingList.ExpressionParser.ScanDate">
+            <devdoc>
+                Just read the string between '#' signs, and parse it later
+            </devdoc>
+        </member>
+        <member name="M:C1.DataCollection.BindingList.ExpressionParser.IsWhiteSpace(System.Char)">
+            <devdoc>
+                is the character a white space character?
+                Consider using CharacterInfo().IsWhiteSpace(ch) (System.Globalization)
+            </devdoc>
+        </member>
+        <member name="M:C1.DataCollection.BindingList.ExpressionParser.IsAlphaNumeric(System.Char)">
+            <devdoc>
+                is the character an alphanumeric?
+            </devdoc>
+        </member>
+        <member name="M:C1.DataCollection.BindingList.ExpressionParser.IsAlpha(System.Char)">
+            <devdoc>
+                is the character an alpha?
+            </devdoc>
+        </member>
+        <member name="T:C1.DataCollection.BindingList.OperatorInfo">
+            <devdoc>
+                Operator stack element
+            </devdoc>
+        </member>
+        <member name="F:C1.DataCollection.BindingList.Operators.priority">
+            
+                 Mapping from Operator to prioritys
+                 
+        </member>
+        <member name="F:C1.DataCollection.BindingList.Operators.Looks">
+            <devdoc>
+                this is array used for error messages.
+            </devdoc>
+        </member>
+        <member name="M:C1.DataCollection.BindingList.NameNode.ParseName(System.Char[],System.Int32,System.Int32)">
+            <devdoc>
+                Parses given name and checks it validity
+            </devdoc>
+        </member>
+        <member name="F:C1.DataCollection.BindingList.AggregateType.None">
+            <devdoc>
+               <para>None.</para>
+            </devdoc>
+        </member>
+        <member name="F:C1.DataCollection.BindingList.AggregateType.Sum">
+            <devdoc>
+               <para>Sum.</para>
+            </devdoc>
+        </member>
+        <member name="F:C1.DataCollection.BindingList.AggregateType.Mean">
+            <devdoc>
+               <para>Average value of the aggregate set.</para>
+            </devdoc>
+        </member>
+        <member name="F:C1.DataCollection.BindingList.AggregateType.Min">
+            <devdoc>
+               <para>The minimum value of the set.</para>
+            </devdoc>
+        </member>
+        <member name="F:C1.DataCollection.BindingList.AggregateType.Max">
+            <devdoc>
+               <para>The maximum value of the set.</para>
+            </devdoc>
+        </member>
+        <member name="F:C1.DataCollection.BindingList.AggregateType.First">
+            <devdoc>
+               <para>First element of the set.</para>
+            </devdoc>
+        </member>
+        <member name="F:C1.DataCollection.BindingList.AggregateType.Count">
+            <devdoc>
+               <para>The count of the set.</para>
+            </devdoc>
+        </member>
+        <member name="F:C1.DataCollection.BindingList.AggregateType.Var">
+            <devdoc>
+               <para>Variance.</para>
+            </devdoc>
+        </member>
+        <member name="F:C1.DataCollection.BindingList.AggregateType.StDev">
+            <devdoc>
+               <para>Standard deviation.</para>
+            </devdoc>
+        </member>
+        <member name="M:C1.Core.ObjectEx.GetPropertyValue(System.Object,System.String)">
+            <summary>
+            Gets the value of a property or property path of the specified object.
+            </summary>
+            <remarks>
+            This extension DON'T evaluate ICustomTypeDescriptor interface. 
+            Use generic extension with the same name if you are evaluating the path 
+            of a DataTable or any object that implements ICustomTypeDescriptor.
+            </remarks>
+            <param name="target">The target object.</param>
+            <param name="path">The name of the property or the property path.</param>
+            <returns>The value contained in the property</returns>
+        </member>
+        <member name="M:C1.Core.ObjectEx.SetPropertyValue``1(System.Object,System.String,``0)">
+            <summary>
+            Sets the value of a property or property path of the specified object.
+            </summary>
+            <typeparam name="T">Type of the property to set.</typeparam>
+            <param name="target">Object that contains the property.</param>
+            <param name="path">Name or path of the property that contains the value.</param>
+            <param name="value">New value for the property.</param>
+        </member>
+        <member name="T:C1.Core.TypeEx">
+            <summary>
+            The <see cref="T:C1.Core.TypeEx"/> class provides useful extension methods for the <see cref="T:System.Type"/> class.
+            </summary>
+        </member>
+        <member name="M:C1.Core.TypeEx.New``1(System.Type)">
+            <summary>
+            Creates a new instance of this type using the default constructor.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="type">The type.</param>
+            <returns>A new instance of type T.</returns>
+        </member>
+        <member name="M:C1.Core.TypeEx.New``2(System.Type,``1)">
+            <summary>
+            Creates a new instance of this type using the default constructor.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="P1">The type of the <paramref name="param1"/>.</typeparam>
+            <param name="type">The type.</param>
+            <param name="param1">The first parameter.</param>
+            <returns>A new instance of type T.</returns>
+        </member>
+        <member name="M:C1.Core.TypeEx.New(System.Type)">
+            <summary>
+            Creates a new instance of this type using the default constructor.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>A new instance of type T.</returns>
+        </member>
+        <member name="M:C1.Core.TypeEx.GetDefaultPublicCtor(System.Type)">
+            <summary>
+            Returns default public instance parameter-less constructor for the specified type.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>The default constructor for the specified type if it exists; Null otherwise.</returns>
+        </member>
+        <member name="M:C1.Core.TypeEx.New``1(System.Type,System.Action{``0})">
+            <summary>
+            Creates a new instance of this type using the default constructor.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="type">The type.</param>
+            <param name="initializers">The initializers.</param>
+            <returns>A new instance of type T</returns>
+        </member>
+        <member name="M:C1.Core.TypeEx.GetNonNullableType(System.Type)">
+            <summary>
+            Returns the underlying type of a nullable type:
+            e.g. if Type = double?, then returns double.
+            </summary>
+            <param name="type">Type.</param>
+            <returns>The underlying type.</returns>
+        </member>
+        <member name="M:C1.Core.TypeEx.IsNullableType(System.Type)">
+            <summary>
+            Returns true if the type is a nullable type.
+            </summary>
+            <param name="type">Type.</param>
+            <returns>True if the type is nullable.</returns>
+        </member>
+        <member name="M:C1.Core.TypeEx.IsNumeric(System.Type)">
+            <summary>
+            Returns true if the type is any of the numeric data types:
+            double, float, int, uint, long, ulong, short, ushort, sbyte, byte and decimal.
+            </summary>
+            <param name="type">Type.</param>
+            <returns>True if the type is numeric.</returns>
+        </member>
+        <member name="M:C1.Core.TypeEx.IsNumericIntegral(System.Type)">
+            <summary>
+            Returns true if the type is any of the integral numeric data types:
+            int, uint, long, ulong, short, ushort, sbyte and byte.
+            </summary>
+            <param name="type">Type.</param>
+            <returns>True if the type is an integral numeric.</returns>
+        </member>
+        <member name="M:C1.Core.TypeEx.IsNumericIntegralSigned(System.Type)">
+            <summary>
+            Returns true if the type is any of the integral signed numeric data types:
+            int, long, short and sbyte.
+            </summary>
+            <param name="type">Type.</param>
+            <returns>True if the type is a signed integral numeric.</returns>
+        </member>
+        <member name="M:C1.Core.TypeEx.IsNumericIntegralUnsigned(System.Type)">
+            <summary>
+            Returns true if the type is any of the integral unsigned numeric data types:
+            uint, ulong, ushort and byte.
+            </summary>
+            <param name="type">Type.</param>
+            <returns>True if the type is an unsigned integral numeric.</returns>
+        </member>
+        <member name="M:C1.Core.TypeEx.IsNumericNonIntegral(System.Type)">
+            <summary>
+            Returns true if the type is any of the numeric non-integral data types:
+            double, float and decimal.
+            </summary>
+            <param name="type">Type.</param>
+            <returns>True if the type is a non-integral numeric.</returns>
+        </member>
+        <member name="M:C1.Core.TypeEx.GetEnumValues``1(System.Type)">
+            <summary>
+            Returns the values of an Enum type (Type.IsEnum == true).
+            </summary>
+            <typeparam name="T">Enum type.</typeparam>
+            <param name="enumType">Enum type.</param>
+            <returns>The list of values for that enum type.</returns>
+        </member>
+        <member name="T:System.Data.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:System.Data.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:System.Data.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:System.Data.Resources.Expr_AggregateArgument">
+            <summary>
+              Looks up a localized string similar to Syntax error in aggregate argument: Expecting a single column argument with possible &apos;Child&apos; qualifier..
+            </summary>
+        </member>
+        <member name="P:System.Data.Resources.Expr_ExpressionTooComplex">
+            <summary>
+              Looks up a localized string similar to Expression is too complex..
+            </summary>
+        </member>
+        <member name="P:System.Data.Resources.Expr_FunctionArgumentCount">
+            <summary>
+              Looks up a localized string similar to Invalid number of arguments: function {0}()..
+            </summary>
+        </member>
+        <member name="P:System.Data.Resources.Expr_InvalidDate">
+            <summary>
+              Looks up a localized string similar to The expression contains invalid date constant &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:System.Data.Resources.Expr_InvalidName">
+            <summary>
+              Looks up a localized string similar to Invalid column name [{0}]..
+            </summary>
+        </member>
+        <member name="P:System.Data.Resources.Expr_InvalidNameBracketing">
+            <summary>
+              Looks up a localized string similar to The expression contains invalid name: &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:System.Data.Resources.Expr_InvalidString">
+            <summary>
+              Looks up a localized string similar to The expression contains an invalid string constant: {0}..
+            </summary>
+        </member>
+        <member name="P:System.Data.Resources.Expr_InWithoutList">
+            <summary>
+              Looks up a localized string similar to Syntax error: The IN keyword must be followed by a non-empty list of expressions separated by commas, and also must be enclosed in parentheses..
+            </summary>
+        </member>
+        <member name="P:System.Data.Resources.Expr_InWithoutParentheses">
+            <summary>
+              Looks up a localized string similar to Syntax error: The items following the IN keyword must be separated by commas and be enclosed in parentheses..
+            </summary>
+        </member>
+        <member name="P:System.Data.Resources.Expr_LookupArgument">
+            <summary>
+              Looks up a localized string similar to Syntax error in Lookup expression: Expecting keyword &apos;Parent&apos; followed by a single column argument with possible relation qualifier: Parent[(&lt;relation_name&gt;)].&lt;column_name&gt;..
+            </summary>
+        </member>
+        <member name="P:System.Data.Resources.Expr_MissingOperand">
+            <summary>
+              Looks up a localized string similar to Syntax error: Missing operand after &apos;{0}&apos; operator..
+            </summary>
+        </member>
+        <member name="P:System.Data.Resources.Expr_MissingOperandBefore">
+            <summary>
+              Looks up a localized string similar to Syntax error: Missing operand before &apos;{0}&apos; operator..
+            </summary>
+        </member>
+        <member name="P:System.Data.Resources.Expr_MissingRightParen">
+            <summary>
+              Looks up a localized string similar to The expression is missing the closing parenthesis..
+            </summary>
+        </member>
+        <member name="P:System.Data.Resources.Expr_Syntax">
+            <summary>
+              Looks up a localized string similar to Syntax error in the expression..
+            </summary>
+        </member>
+        <member name="P:System.Data.Resources.Expr_TooManyRightParentheses">
+            <summary>
+              Looks up a localized string similar to The expression has too many closing parentheses..
+            </summary>
+        </member>
+        <member name="P:System.Data.Resources.Expr_UndefinedFunction">
+            <summary>
+              Looks up a localized string similar to The expression contains undefined function call {0}()..
+            </summary>
+        </member>
+        <member name="P:System.Data.Resources.Expr_UnknownToken">
+            <summary>
+              Looks up a localized string similar to Cannot interpret token &apos;{0}&apos; at position {1}..
+            </summary>
+        </member>
+        <member name="P:System.Data.Resources.Expr_UnknownToken1">
+            <summary>
+              Looks up a localized string similar to Expected {0}, but actual token at the position {2} is {1}..
+            </summary>
+        </member>
+        <member name="P:System.Data.Resources.Expr_UnsupportedOperator">
+            <summary>
+              Looks up a localized string similar to The expression contains unsupported operator &apos;{0}&apos;..
+            </summary>
+        </member>
+    </members>
+</doc>

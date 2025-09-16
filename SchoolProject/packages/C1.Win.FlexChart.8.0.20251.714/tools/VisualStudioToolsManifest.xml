@@ -1,0 +1,38 @@
+﻿<FileList>
+  <File Reference="C1.Win.FlexChart.4.6.2.dll">
+    <ToolboxItems UIFramework="WinForms" VSCategory="C1 WinForms Controls" BlendCategory="C1 WinForms Controls">
+      <Item Type="C1.Win.Chart.FlexPie"/>
+      <Item Type="C1.Win.Chart.FlexRadar"/>
+      <Item Type="C1.Win.Chart.FlexChart"/>
+      <Item Type="C1.Win.Chart.Sunburst"/>
+      <Item Type="C1.Win.Chart.TreeMap"/>
+    </ToolboxItems>
+  </File>
+  <File Reference="C1.Win.FlexChart.4.8.dll">
+    <ToolboxItems UIFramework="WinForms" VSCategory="C1 WinForms Controls" BlendCategory="C1 WinForms Controls">
+      <Item Type="C1.Win.Chart.FlexPie"/>
+      <Item Type="C1.Win.Chart.FlexRadar"/>
+      <Item Type="C1.Win.Chart.FlexChart"/>
+      <Item Type="C1.Win.Chart.Sunburst"/>
+      <Item Type="C1.Win.Chart.TreeMap"/>
+    </ToolboxItems>
+  </File>
+  <File Reference="C1.Win.FlexChart.6.dll">
+    <ToolboxItems UIFramework="WinForms" VSCategory="C1 WinForms Controls" BlendCategory="C1 WinForms Controls">
+      <Item Type="C1.Win.Chart.FlexPie"/>
+      <Item Type="C1.Win.Chart.FlexRadar"/>
+      <Item Type="C1.Win.Chart.FlexChart"/>
+      <Item Type="C1.Win.Chart.Sunburst"/>
+      <Item Type="C1.Win.Chart.TreeMap"/>
+    </ToolboxItems>
+  </File>
+  <File Reference="C1.Win.FlexChart.8.dll">
+    <ToolboxItems UIFramework="WinForms" VSCategory="C1 WinForms Controls" BlendCategory="C1 WinForms Controls">
+      <Item Type="C1.Win.Chart.FlexPie"/>
+      <Item Type="C1.Win.Chart.FlexRadar"/>
+      <Item Type="C1.Win.Chart.FlexChart"/>
+      <Item Type="C1.Win.Chart.Sunburst"/>
+      <Item Type="C1.Win.Chart.TreeMap"/>
+    </ToolboxItems>
+  </File>
+</FileList>

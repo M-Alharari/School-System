@@ -1,0 +1,22 @@
+﻿<FileList>
+  <File Reference="C1.Win.BarCode.4.6.2.dll">
+    <ToolboxItems UIFramework="WinForms" VSCategory="C1 WinForms Controls" BlendCategory="C1 WinForms Controls">
+      <Item Type="C1.Win.BarCode.C1BarCode"/>
+    </ToolboxItems>
+  </File>
+  <File Reference="C1.Win.BarCode.4.8.dll">
+    <ToolboxItems UIFramework="WinForms" VSCategory="C1 WinForms Controls" BlendCategory="C1 WinForms Controls">
+      <Item Type="C1.Win.BarCode.C1BarCode"/>
+    </ToolboxItems>
+  </File>
+  <File Reference="C1.Win.BarCode.6.dll">
+    <ToolboxItems UIFramework="WinForms" VSCategory="C1 WinForms Controls" BlendCategory="C1 WinForms Controls">
+      <Item Type="C1.Win.BarCode.C1BarCode"/>
+    </ToolboxItems>
+  </File>
+  <File Reference="C1.Win.BarCode.8.dll">
+    <ToolboxItems UIFramework="WinForms" VSCategory="C1 WinForms Controls" BlendCategory="C1 WinForms Controls">
+      <Item Type="C1.Win.BarCode.C1BarCode"/>
+    </ToolboxItems>
+  </File>
+</FileList>

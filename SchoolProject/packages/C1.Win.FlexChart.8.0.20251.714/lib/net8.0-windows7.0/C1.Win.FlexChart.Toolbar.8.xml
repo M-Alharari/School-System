@@ -1,0 +1,881 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>C1.Win.FlexChart.Toolbar.8</name>
+    </assembly>
+    <members>
+        <member name="F:C1.Util.Licensing.VersionConst.VerString">
+            <summary>
+            WinForms version string representation (4 dot-delimited numbers).
+            </summary>
+        </member>
+        <member name="F:C1.Util.Licensing.VersionConst.VersionStr">
+            <summary>
+            Same as <see cref="F:C1.Util.Licensing.VersionConst.VerString"/>.
+            </summary>
+        </member>
+        <member name="T:C1.Util.Licensing.AssemblyNames">
+            <summary>
+            Specifies assembly name parts, used by AssemblyCommonInfo to generate actual assembly names.
+            </summary>
+        </member>
+        <member name="T:C1.Win.Chart.Toolbar.Common.ChartRangePanel">
+            <summary>
+            Represents panel for editing chart range.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Toolbar.Common.ChartRangePanel.#ctor">
+            <summary>
+            Creates an instance of ChartRangePanel class.
+            </summary>
+        </member>
+        <member name="F:C1.Win.Chart.Toolbar.Common.DoubleEditor.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Toolbar.Common.DoubleEditor.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:C1.Win.Chart.Toolbar.Common.DoubleEditor.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:C1.Win.Chart.Toolbar.Common.IChartChanged">
+            <summary>
+            IChartChanged interface.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Toolbar.Common.IChartChanged.OnChartChanged">
+            <summary>
+            Called when chart was changed.
+            </summary>
+        </member>
+        <member name="T:C1.Win.Chart.Toolbar.ChartMenuItemBase">
+            <summary>
+            Base class for chart menu items.
+            </summary>
+        </member>
+        <member name="F:C1.Win.Chart.Toolbar.ChartMenuItemBase.chart">
+            <summary>
+            FlexChart control.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Toolbar.ChartMenuItemBase.#ctor(C1.Win.Chart.FlexChart,System.String)">
+            <summary>
+            Create an instance of menu item.
+            </summary>
+            <param name="chart">FlexChart control.</param>
+            <param name="text">Menu text.</param>
+        </member>
+        <member name="M:C1.Win.Chart.Toolbar.ChartMenuItemBase.OnOwnerChanged(System.EventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="P:C1.Win.Chart.Toolbar.ChartMenuItemBase.Chart">
+            <summary>
+            Gets the instance of chart.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Toolbar.ChartMenuItemBase.MenuItemFromEnum``1(``0,System.Action{``0},``0[],System.String[])">
+            <summary>
+            Create menu items from enum.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="val"></param>
+            <param name="action"></param>
+            <param name="items"></param>
+            <param name="names"></param>
+            <returns>Created menu items.</returns>
+        </member>
+        <member name="M:C1.Win.Chart.Toolbar.ChartMenuItemBase.GetImage(System.String)">
+            <summary>
+            Gets menu image from text.
+            </summary>
+            <param name="name">Text key.</param>
+            <returns>Menu image.</returns>
+        </member>
+        <member name="M:C1.Win.Chart.Toolbar.ChartMenuItemBase.CreateMenuItem(System.String,System.Boolean,System.Action{System.Boolean})">
+            <summary>
+            Create toggle menu item.
+            </summary>
+            <param name="name"></param>
+            <param name="val"></param>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="P:C1.Win.Chart.Toolbar.ChartMenuItemBase.LabelFont">
+            <summary>
+            Gets the label font.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Toolbar.ChartMenuItemBase.Init">
+            <summary>
+            Init menu items.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Toolbar.ChartMenuItemBase.IsDirty">
+            <summary>
+            Whether the item update required.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:C1.Win.Chart.Toolbar.ChartMenuItemBase.AddNumericProperty(System.String,System.Double,System.Action{System.Double},System.Double,System.Double,System.Int32)">
+            <summary>
+            Creates numeric property editor.
+            </summary>
+            <param name="label"></param>
+            <param name="value"></param>
+            <param name="onChanged"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <param name="decimals"></param>
+            <returns>NumericUpDown control</returns>
+        </member>
+        <member name="T:C1.Win.Chart.Toolbar.ChartTypeMenuItem">
+            <summary>
+            FlexChart menu item containing chart types.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Toolbar.ChartTypeMenuItem.#ctor">
+            <summary>
+            Create an instance of ChartTypeMenuItem type.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Toolbar.ChartTypeMenuItem.#ctor(C1.Win.Chart.FlexChart,System.String)">
+            <summary>
+            Create an instance of ChartTypeMenuItem type.
+            </summary>
+            <param name="chart">FlexChart control.</param>
+            <param name="text">Menu text.</param>
+        </member>
+        <member name="T:C1.Win.Chart.Toolbar.PaletteMenuItem">
+            <summary>
+            FlexChart menu item containing palette items.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Toolbar.PaletteMenuItem.#ctor">
+            <summary>
+            Create an instance of PaletteMenuItem class.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Toolbar.PaletteMenuItem.#ctor(C1.Win.Chart.FlexChart,System.String)">
+            <summary>
+            Create an instance of PaletteMenuItem class.
+            </summary>
+            <param name="chart">FlexChart control.</param>
+            <param name="text">Menu text.</param>
+        </member>
+        <member name="T:C1.Win.Chart.Toolbar.StackingMenuItem">
+            <summary>
+            FlexChart menu item with stacking options.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Toolbar.StackingMenuItem.#ctor(C1.Win.Chart.FlexChart,System.String)">
+            <summary>
+            Create an instance of StackingMenuItem class.
+            </summary>
+            <param name="chart">FlexChart control.</param>
+            <param name="text">Menu text.</param>
+        </member>
+        <member name="T:C1.Win.Chart.Toolbar.LegendMenuItem">
+            <summary>
+            FlexChart menu item with legend options.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Toolbar.LegendMenuItem.#ctor">
+            <summary>
+            Create an instance of LegendMenuItem class.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Toolbar.LegendMenuItem.#ctor(C1.Win.Chart.FlexChart,System.String)">
+            <summary>
+            Create an instance of LegendMenuItem class.
+            </summary>
+            <param name="chart">FlexChart control.</param>
+            <param name="text">Menu text.</param>
+        </member>
+        <member name="T:C1.Win.Chart.Toolbar.DataLabelMenuItem">
+            <summary>
+            FlexChart menu item with data label options.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Toolbar.DataLabelMenuItem.#ctor">
+            <summary>
+            Create an instance of DataLabelMenuItem class.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Toolbar.DataLabelMenuItem.#ctor(C1.Win.Chart.FlexChart,System.String)">
+            <summary>
+            Create an instance of DataLabelMenuItem class.
+            </summary>
+            <param name="chart">FlexChart control.</param>
+            <param name="text">Menu text.</param>
+        </member>
+        <member name="T:C1.Win.Chart.Toolbar.AxisMenuItem">
+            <summary>
+            FlexChart menu item with axis options.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Toolbar.AxisMenuItem.#ctor(C1.Chart.AxisType)">
+            <summary>
+            Creates an instance of AxisMenuItem class.
+            </summary>
+            <param name="axisType">Axis type.</param>
+        </member>
+        <member name="P:C1.Win.Chart.Toolbar.AxisMenuItem.Axis">
+            <summary>
+            Gets the axis instance.
+            </summary>
+        </member>
+        <member name="T:C1.Win.Chart.Toolbar.TicksMenuItem">
+            <summary>
+            FlexChart menu item with axis ticks options.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Toolbar.TicksMenuItem.#ctor(C1.Win.Chart.Axis,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="axis"></param>
+            <param name="major"></param>
+        </member>
+        <member name="T:C1.Win.Chart.Toolbar.ExportMenuItem">
+            <summary>
+            FlexChart export menu item.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Toolbar.ExportMenuItem.#ctor">
+            <summary>
+            Creates an instance of ExportMenuItem class.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Toolbar.ExportMenuItem.#ctor(C1.Win.Chart.FlexChart,System.String)">
+            <summary>
+            Creates an instance of ExportMenuItem class.
+            </summary>
+            <param name="chart">FlexChart control.</param>
+            <param name="text">Menu text.</param>
+        </member>
+        <member name="T:C1.Win.Chart.Toolbar.PrintMenuItem">
+            <summary>
+            FlexChart print menu item.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Toolbar.PrintMenuItem.#ctor">
+            <summary>
+            Creates an instance of PrintMenuItem class.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Toolbar.PrintMenuItem.#ctor(C1.Win.Chart.FlexChart)">
+            <summary>
+            Creates an instance of PrintMenuItem class.
+            </summary>
+            <param name="chart">FlexChart control.</param>
+        </member>
+        <member name="M:C1.Win.Chart.Toolbar.PrintMenuItem.Print(System.Boolean)">
+            <summary>
+            Prints the chart.
+            </summary>
+            <param name="preview">Whether to show preview window.</param>
+        </member>
+        <member name="T:C1.Win.Chart.Toolbar.SeriesMenuItem">
+            <summary>
+            Represents series menu that allows to edit series list.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Toolbar.SeriesMenuItem.#ctor">
+            <summary>
+            Creates an instance of SeriesMenuItem class.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Toolbar.SeriesMenuItem.#ctor(C1.Win.Chart.FlexChart)">
+            <summary>
+            Creates an instance of SeriesMenuItem class.
+            </summary>
+            <param name="chart">Associated chart.</param>
+        </member>
+        <member name="T:C1.Win.Chart.Toolbar.TrendLineMenuItem">
+            <summary>
+            Trend line menu item.
+            </summary>
+        </member>
+        <member name="F:C1.Win.Chart.Toolbar.TrendLineMenuItem.series">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Toolbar.TrendLineMenuItem.#ctor">
+            <summary>
+            Creates an instance of TrendLineMenuItem.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Toolbar.TrendLineMenuItem.CreateSeries">
+            <summary>
+            Creates overlay series.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:C1.Win.Chart.Toolbar.TrendLineMenuItem.InitProperties">
+            <summary>
+            Init properties menu items.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Toolbar.TrendLineMenuItem.Init">
+            <inheritdoc/>
+        </member>
+        <member name="T:C1.Win.Chart.Toolbar.ChartRangeEditor">
+            <summary>
+            Represents displayed chart range editor for chart toolbar.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Toolbar.ChartRangeEditor.#ctor">
+            <summary>
+            Create an instance of ChartRangeEditor class.
+            </summary>
+        </member>
+        <member name="T:C1.Win.Chart.Toolbar.TimeRangeEditor">
+            <summary>
+            Represents time range editor for FlexChart's toolbar.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Toolbar.TimeRangeEditor.#ctor(System.Windows.Forms.ToolStrip)">
+            <summary>
+            Creates an instance of TimeRangeEditor.
+            </summary>
+            <param name="owner">Owner toolbar</param>
+        </member>
+        <member name="T:C1.Win.Chart.Toolbar.FlexChartToolbar">
+            <summary>
+            Toolbar for runtime interaction with FlexChart
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Toolbar.FlexChartToolbar.#ctor">
+            <summary>
+            Creates an instance or FlexChartToolbar class.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Toolbar.FlexChartToolbar.#ctor(System.Boolean)">
+            <summary>
+            Creates an instance or FlexChartToolbar class.
+            </summary>
+            <param name="createDefaultItems">Whether to create default toolbar items.</param>
+        </member>
+        <member name="M:C1.Win.Chart.Toolbar.FlexChartToolbar.InitStandardItems">
+            <summary>
+            Creates standard toolbar items.
+            </summary>
+        </member>
+        <member name="P:C1.Win.Chart.Toolbar.FlexChartToolbar.Chart">
+            <summary>
+            Gets the chart control.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Toolbar.FlexChartToolbar.OnDockChanged(System.EventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="M:C1.Win.Chart.Toolbar.FlexChartToolbar.OnParentChanged(System.EventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="T:C1.Win.Chart.Ribbon.ChartRibbonGroup">
+            <summary>
+            Represents chart ribbon group.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Ribbon.ChartRibbonGroup.#ctor">
+            <summary>
+            Creates an instance of ChartRibbonGroup.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Ribbon.ChartRibbonGroup.#ctor(System.String)">
+            <summary>
+            Creates an instance of ChartRibbonGroup.
+            </summary>
+            <param name="text"></param>
+        </member>
+        <member name="M:C1.Win.Chart.Ribbon.ChartRibbonGroup.Dispose(System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="M:C1.Win.Chart.Ribbon.ChartRibbonGroup.CreateButton(System.String,System.Drawing.Image,System.Action)">
+            <summary>
+            Creates ribbon button with specified parameters. 
+            </summary>
+            <param name="text"></param>
+            <param name="image"></param>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C1.Win.Chart.Ribbon.ChartRibbonGroup.CreateButton(System.ComponentModel.Design.IDesignerHost,System.String,System.Drawing.Image,System.Action)">
+            <summary>
+            Creates ribbon button with specified parameters. 
+            </summary>
+            <param name="host"></param>    
+            <param name="text"></param>
+            <param name="image"></param>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="P:C1.Win.Chart.Ribbon.ChartRibbonGroup.Chart">
+            <summary>
+            Gets or sets the associated chart.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Ribbon.ChartRibbonGroup.GetChart">
+            <summary>
+            Gets actual chart.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:C1.Win.Chart.Ribbon.ChartRibbonGroup.TimerUpdateInternal">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:C1.Win.Chart.Ribbon.ChartTypeRibbonGroup">
+            <summary>
+            Represents chart ribbon group with chart type and stacking selection.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Ribbon.ChartTypeRibbonGroup.#ctor">
+            <summary>
+            Creates an instance of ChartTypeRibbonGroup.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Ribbon.ChartTypeRibbonGroup.TimerUpdateInternal">
+            <inheritdoc/>
+        </member>
+        <member name="T:C1.Win.Chart.Ribbon.ChartSettingsRibbonGroup">
+            <summary>
+            Represents chart settings ribbon group.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Ribbon.ChartSettingsRibbonGroup.#ctor">
+            <summary>
+            Creates an instance of ChartSettingsRibbonGroup.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Ribbon.ChartSettingsRibbonGroup.TimerUpdateInternal">
+            <inheritdoc/>
+        </member>
+        <member name="T:C1.Win.Chart.Ribbon.ChartAppearanceRibbonGroup">
+            <summary>
+            Represents chart appearance ribbon group.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Ribbon.ChartAppearanceRibbonGroup.#ctor">
+            <summary>
+            Creates an instance of ChartAppearanceRibbonGroup.
+            </summary>
+        </member>
+        <member name="T:C1.Win.Chart.Ribbon.PrintRibbonGroup">
+            <summary>
+            Represents chart print ribbon group.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Ribbon.PrintRibbonGroup.#ctor">
+            <summary>
+            Creates an instance of PrintRibbonGroup.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Ribbon.PrintRibbonGroup.TimerUpdateInternal">
+            <inheritdoc/>
+        </member>
+        <member name="M:C1.Win.Chart.Ribbon.PrintRibbonGroup.CreateItems(System.ComponentModel.Design.IDesignerHost)">
+            <summary>
+            Create default items at design-time.
+            </summary>
+            <param name="host">Designer host.</param>
+        </member>
+        <member name="T:C1.Win.Chart.Ribbon.ExportRibbonGroup">
+            <summary>
+            Represents export ribbon group. 
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Ribbon.ExportRibbonGroup.#ctor">
+            <summary>
+            Creates an instance of ExportRibbonGroup.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Ribbon.ExportRibbonGroup.TimerUpdateInternal">
+            <inheritdoc/>
+        </member>
+        <member name="M:C1.Win.Chart.Ribbon.ExportRibbonGroup.CreateItems(System.ComponentModel.Design.IDesignerHost)">
+            <summary>
+            Create default items at design-time.
+            </summary>
+            <param name="host">Designer host.</param>
+        </member>
+        <member name="T:C1.Win.Chart.Ribbon.AxesRibbonGroup">
+            <summary>
+            Represents ribbon group for chart axes.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Ribbon.AxesRibbonGroup.#ctor">
+            <summary>
+            Creates an instance of AxesRibbonGroup.
+            </summary>
+        </member>
+        <member name="T:C1.Win.Chart.Ribbon.ChartElementsRibbonGroup">
+            <summary>
+            Represents ribbon group for chart elements.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Ribbon.ChartElementsRibbonGroup.#ctor">
+            <summary>
+            Creates an instance of ChartElementsRibbonGroup.
+            </summary>
+        </member>
+        <member name="T:C1.Win.Chart.Ribbon.TrendLineRibbonGroup">
+            <summary>
+            Represents ribbon group for trendline.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Ribbon.TrendLineRibbonGroup.#ctor">
+            <summary>
+            Creates an instance of TrendlineRibbonGroup.
+            </summary>
+        </member>
+        <member name="T:C1.Win.Chart.Ribbon.TimeRangeRibbonGroup">
+            <summary>
+            Represents FlexChart's ribbon group for editing chart time range.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Ribbon.TimeRangeRibbonGroup.#ctor">
+            <summary>
+            Creates an instance of TimeRangeRibbonGroup class.
+            </summary>
+        </member>
+        <member name="T:C1.Win.Chart.Ribbon.ChartRangeRibbonGroup">
+            <summary>
+            Represents ribbon group for editing chart range.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Ribbon.ChartRangeRibbonGroup.#ctor">
+            <summary>
+            Creates an instance of ChartRangeRibbonGroup.
+            </summary>
+        </member>
+        <member name="T:C1.Win.Chart.Ribbon.ChartRibbonMenu">
+            <summary>
+            Represents chart ribbon menu.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Ribbon.ChartRibbonMenu.#ctor(System.String)">
+            <summary>
+            Creates an instance of ChartRibbonMenu.
+            </summary>
+            <param name="text"></param>
+        </member>
+        <member name="P:C1.Win.Chart.Ribbon.ChartRibbonMenu.IconSet">
+            <inheritdoc />
+        </member>
+        <member name="P:C1.Win.Chart.Ribbon.ChartRibbonMenu.Chart">
+            <summary>
+            Gets the associated chart.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Ribbon.ChartRibbonMenu.MenuItemFromEnum``1(``0,System.Action{``0},``0[],System.String[])">
+            <summary>
+            Creates menu item from enumeration.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="val"></param>
+            <param name="action"></param>
+            <param name="items"></param>
+            <param name="names"></param>
+        </member>
+        <member name="M:C1.Win.Chart.Ribbon.ChartRibbonMenu.CreateButton(System.String,System.Drawing.Image,System.Action)">
+            <summary>
+            Create a button with specified parameters.
+            </summary>
+            <param name="text"></param>
+            <param name="image"></param>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C1.Win.Chart.Ribbon.ChartRibbonMenu.CreateToggleButton(System.String,System.Boolean,System.Action{System.Boolean})">
+            <summary>
+            Create toggle button with specified parameters.
+            </summary>
+            <param name="text"></param>
+            <param name="val"></param>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C1.Win.Chart.Ribbon.ChartRibbonMenu.GetImage(System.String)">
+            <summary>
+            Gets an image by name.
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C1.Win.Chart.Ribbon.ChartRibbonMenu.GetChart">
+            <summary>
+            Gets actual chart.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:C1.Win.Chart.Ribbon.ChartTypeRibbonMenu">
+            <summary>
+            Represents chart type ribbon menu.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Ribbon.ChartTypeRibbonMenu.#ctor">
+            <summary>
+            Creates an instance of ChartTypeRibbonMenu. 
+            </summary>
+        </member>
+        <member name="T:C1.Win.Chart.Ribbon.StackingRibbonMenu">
+            <summary>
+            Represents chart stacking menu,
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Ribbon.StackingRibbonMenu.#ctor">
+            <summary>
+            Creates an instance of StackingRibbonMenu. 
+            </summary>
+        </member>
+        <member name="T:C1.Win.Chart.Ribbon.PaletteRibbonMenu">
+            <summary>
+             Represents chart paletee menu.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Ribbon.PaletteRibbonMenu.#ctor">
+            <summary>
+            Creates an instance of PaletteRibbonMenu.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Ribbon.PaletteRibbonMenu.GetImage(System.String)">
+            <summary>
+            Gets an image by name. 
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="T:C1.Win.Chart.Ribbon.LegendRibbonMenu">
+            <summary>
+            Represents legend ribbon menu.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Ribbon.LegendRibbonMenu.#ctor">
+            <summary>
+            Creates an instance of LegendRibbonMenu.
+            </summary>
+        </member>
+        <member name="T:C1.Win.Chart.Ribbon.DataLabelRibbonMenu">
+            <summary>
+            Represents ribbon menu for data labels.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Ribbon.DataLabelRibbonMenu.#ctor">
+            <summary>
+            Creates an instance of DataLabelRibbonMenu.
+            </summary>
+        </member>
+        <member name="T:C1.Win.Chart.Ribbon.AxisTicksRibbonMenu">
+            <summary>
+            Represents menu for axis ticks.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Ribbon.AxisTicksRibbonMenu.#ctor(C1.Win.Chart.Axis,System.Boolean)">
+            <summary>
+            Creates an instance of AxisTicksRibbonMenu.
+            </summary>
+            <param name="axis"></param>
+            <param name="major"></param>
+        </member>
+        <member name="T:C1.Win.Chart.Ribbon.AxisRibbonMenu">
+            <summary>
+            Represent ribbon menu for chart axis.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Ribbon.AxisRibbonMenu.#ctor(C1.Chart.AxisType)">
+            <summary>
+            Creates an instance for AxisRibbonMenu.
+            </summary>
+            <param name="type"></param>
+        </member>
+        <member name="M:C1.Win.Chart.Ribbon.AxisRibbonMenu.GetAxis">
+            <summary>
+            Gets the corresponding axis instance.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:C1.Win.Chart.Ribbon.PrintRibbonMenu">
+            <summary>
+            Represents chart print menu.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Ribbon.PrintRibbonMenu.#ctor">
+            <summary>
+            Creates an instance of PrintRibbonMenu.
+            </summary>
+        </member>
+        <member name="T:C1.Win.Chart.Ribbon.TrendLineMenu">
+            <summary>
+            Represents trend line ribbon menu.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Ribbon.TrendLineMenu.#ctor(System.String)">
+            <summary>
+            Creates an instance of TrendLineMenu.
+            </summary>
+            <param name="text"></param>
+        </member>
+        <member name="P:C1.Win.Chart.Ribbon.TrendLineMenu.Order">
+            <summary>
+            Gets or sets the trend line order.
+            </summary>
+        </member>
+        <member name="P:C1.Win.Chart.Ribbon.TrendLineMenu.FitType">
+            <summary>
+            Gets or sets the trend line fit type.
+            </summary>
+        </member>
+        <member name="P:C1.Win.Chart.Ribbon.TrendLineMenu.TrendLineName">
+            <summary>
+            Gets or sets the trend line name.
+            </summary>
+        </member>
+        <member name="T:C1.Win.Chart.Ribbon.SeriesRibbonMenu">
+            <summary>
+            Represents series ribbon menu that allows to edit series list.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Ribbon.SeriesRibbonMenu.#ctor(System.String)">
+            <summary>
+            Creates an instance of SeriesRibbonMenu class.
+            </summary>
+            <param name="text">Menu text</param>
+        </member>
+        <member name="T:C1.Win.Chart.Ribbon.ChartRibbonColorPicker">
+            <summary>
+            Represents chart color picker.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Ribbon.ChartRibbonColorPicker.#ctor(System.Boolean)">
+            <summary>
+            Creates an instance of ChartRibbonColorPicker.
+            </summary>
+            <param name="isFG"></param>
+        </member>
+        <member name="T:C1.Win.Chart.Ribbon.ChartRibbonButton">
+            <summary>
+            Represents base chart ribbon button.
+            </summary>
+        </member>
+        <member name="P:C1.Win.Chart.Ribbon.ChartRibbonButton.IconSet">
+            <inheritdoc />
+        </member>
+        <member name="P:C1.Win.Chart.Ribbon.ChartRibbonButton.Chart">
+            <summary>
+            Gets corresponding instance of FlexChart.
+            </summary>
+        </member>
+        <member name="T:C1.Win.Chart.Ribbon.CopyRibbbonButton">
+            <summary>
+            Represents copy ribbon button.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Ribbon.CopyRibbbonButton.#ctor">
+            <summary>
+            Creates an instance of CopyRibbonButton.
+            </summary>
+        </member>
+        <member name="T:C1.Win.Chart.Ribbon.ExportPngRibbbonButton">
+            <summary>
+            Represents export PNG ribbon button.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Ribbon.ExportPngRibbbonButton.#ctor">
+            <summary>
+            Creates an instance of ExportPngRibbonButton.
+            </summary>
+        </member>
+        <member name="T:C1.Win.Chart.Ribbon.ExportJpgRibbbonButton">
+            <summary>
+            Represents export JPG ribbon button.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Ribbon.ExportJpgRibbbonButton.#ctor">
+            <summary>
+            Creates an instance of ExportJpgRibbonButton.
+            </summary>
+        </member>
+        <member name="T:C1.Win.Chart.Ribbon.ExportSvgRibbbonButton">
+            <summary>
+            Represents export SVG ribbon button.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Ribbon.ExportSvgRibbbonButton.#ctor">
+            <summary>
+            Creates an instance of ExportSvgRibbonButton.
+            </summary>
+        </member>
+        <member name="T:C1.Win.Chart.Ribbon.PrintRibbbonButton">
+            <summary>
+            Represents print ribbon button.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Ribbon.PrintRibbbonButton.#ctor">
+            <summary>
+            Creates an instance of PrintRibbonButton.
+            </summary>
+        </member>
+        <member name="T:C1.Win.Chart.Ribbon.PrintPreviewRibbbonButton">
+            <summary>
+            Represents print preview ribbon button.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Ribbon.PrintPreviewRibbbonButton.#ctor">
+            <summary>
+            Creates an instance of PrintPreviewRibbonButton.
+            </summary>
+        </member>
+        <member name="T:C1.Win.Chart.Ribbon.RibbonTools">
+            <summary>
+            Internal use.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Ribbon.RibbonTools.InitRibbon(System.Object,System.Object,System.Object)">
+            <summary>
+            Initialize design-time FlexChart ribbon.
+            </summary>
+            <param name="o1"></param>
+            <param name="o2"></param>
+            <param name="o3"></param>
+        </member>
+        <member name="T:C1.Win.Chart.Ribbon.ChartRibbonTab">
+            <summary>
+            Represents chart ribbon menu.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Ribbon.ChartRibbonTab.#ctor">
+            <summary>
+            Creates an instance of ChartRibbonTab.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Ribbon.ChartRibbonTab.#ctor(C1.Win.Chart.FlexChart,System.String)">
+            <summary>
+            Creates an instance of ChartRibbonMenu.
+            </summary>
+            <param name="chart"></param>
+            <param name="text"></param>
+        </member>
+        <member name="P:C1.Win.Chart.Ribbon.ChartRibbonTab.Chart">
+            <summary>
+            Gets the associated chart.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Chart.Ribbon.ChartRibbonTab.Dispose(System.Boolean)">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

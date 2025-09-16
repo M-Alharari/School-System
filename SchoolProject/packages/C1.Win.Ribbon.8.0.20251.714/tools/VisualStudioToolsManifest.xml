@@ -1,0 +1,30 @@
+﻿<FileList>
+  <File Reference="C1.Win.Ribbon.4.6.2.dll">
+    <ToolboxItems UIFramework="WinForms" VSCategory="C1 WinForms Controls" BlendCategory="C1 WinForms Controls">
+      <Item Type="C1.Win.Ribbon.C1BackstageView"/>
+      <Item Type="C1.Win.Ribbon.C1Ribbon"/>
+      <Item Type="C1.Win.Ribbon.C1StatusBar"/>
+    </ToolboxItems>
+  </File>
+  <File Reference="C1.Win.Ribbon.4.8.dll">
+    <ToolboxItems UIFramework="WinForms" VSCategory="C1 WinForms Controls" BlendCategory="C1 WinForms Controls">
+      <Item Type="C1.Win.Ribbon.C1BackstageView"/>
+      <Item Type="C1.Win.Ribbon.C1Ribbon"/>
+      <Item Type="C1.Win.Ribbon.C1StatusBar"/>
+    </ToolboxItems>
+  </File>
+  <File Reference="C1.Win.Ribbon.6.dll">
+    <ToolboxItems UIFramework="WinForms" VSCategory="C1 WinForms Controls" BlendCategory="C1 WinForms Controls">
+      <Item Type="C1.Win.Ribbon.C1BackstageView"/>
+      <Item Type="C1.Win.Ribbon.C1Ribbon"/>
+      <Item Type="C1.Win.Ribbon.C1StatusBar"/>
+    </ToolboxItems>
+  </File>
+  <File Reference="C1.Win.Ribbon.8.dll">
+    <ToolboxItems UIFramework="WinForms" VSCategory="C1 WinForms Controls" BlendCategory="C1 WinForms Controls">
+      <Item Type="C1.Win.Ribbon.C1BackstageView"/>
+      <Item Type="C1.Win.Ribbon.C1Ribbon"/>
+      <Item Type="C1.Win.Ribbon.C1StatusBar"/>
+    </ToolboxItems>
+  </File>
+</FileList>

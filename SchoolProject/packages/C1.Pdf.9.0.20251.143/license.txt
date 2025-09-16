@@ -1,0 +1,13 @@
+ComponentOne Application Licensing
+ 
+.NET applications that use ComponentOne controls require a unique runtime license.
+ 
+When you first build an application that references a ComponentOne NuGet package, it will automatically start a 30-day trial on Windows and Mac. After 30 days you must purchase a developer subscription to continue building the application on that machine.
+ 
+A subscription for Studio Enterprise entitles you to build and distribute applications using ComponentOne service components royalty-free. The subscription entitles you to one year of free upgrades, including bug fixes and new features. After one year, you may renew the subscription or continue to use the product versions received with your subscription indefinitely.
+ 
+Subscriptions can be purchased through the website (developer.mescius.com/componentone/pricing). With the purchase you will receive a serial key.
+ 
+To activate a serial key, download the components through the ComponentOne installer from developer.mescius.com/componentone. The download includes the License Manager tool which can be used to activate serial keys. 
+
+For more information, see https://developer.mescius.com/componentone/docs/license/online-license/overview.html

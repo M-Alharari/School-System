@@ -1,0 +1,16 @@
+This document lists third party software used in this product.
+
+----------------------------------------------------------------
+Open XML SDK by Microsoft
+https://github.com/OfficeDev/Open-XML-SDK
+MIT License
+
+----------------------------------------------------------------
+Logging abstractions for Microsoft.Extensions.Logging
+https://www.nuget.org/packages/Microsoft.Extensions.Logging.Abstractions/
+MIT License
+
+----------------------------------------------------------------
+Newtonsoft.Json
+https://www.nuget.org/packages/Newtonsoft.Json
+MIT License
